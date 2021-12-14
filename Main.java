@@ -35,7 +35,7 @@ public class Main {
 						System.out.println("1.회원정보수정 2.회원삭제");
 						input = sc.nextInt();
 						if(input == 1) {
-							System.out.println("====관리자 회원정보수정");
+							System.out.println("====관리자 회원정보수정====");
 							System.out.println("아이디 입력 : ");
 							String change_id = sc.next();
 							System.out.println("변경할 닉네임 입력");
@@ -48,12 +48,35 @@ public class Main {
 							}else {
 								System.out.println("회원정보 수정 실패");
 							}
-						
-							
-							
 							
 						}else if(input == 2) {
+							System.out.println("====관리자 회원삭제====");
 							
+							// 문제 1. 회원의 아이디만 콘솔에 전부 출력하세요
+							// 출력예시
+							// 1. pbk
+							// 2. hodoo
+							// 3. lsh
+							
+							ArrayList<MemberDTO> list = dao.selectAll();
+							int cnt = 1;
+							for(int i = 0; i < list.size(); i++) {
+								
+								MemberDTO m = list.get(i);
+								
+								if(!m.getId().equals("admin")) {
+									System.out.println(cnt + "." + m.getId());
+									cnt++;
+								}
+							}		
+							System.out.println("삭제할 아이디 입력 : ");
+							String removeId = sc.next();
+							int result = dao.deleteId(removeId);
+							if(result > 0) {
+								System.out.println("아이디 삭제 완료");
+							}else {
+								System.out.println("아이디 삭제 실패");
+							}
 						}
 					}
 					

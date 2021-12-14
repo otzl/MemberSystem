@@ -201,7 +201,7 @@ public class MemberDAO {
 
 	public int adminUpdate(String change_id, String change_nick) {
 		int cnt = 0;
-		
+
 		getConnection();
 
 		try {
@@ -210,7 +210,7 @@ public class MemberDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, change_nick);
 			psmt.setString(2, change_id);
-			
+
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -220,7 +220,26 @@ public class MemberDAO {
 
 		}
 		return cnt;
-
 	}
 
+	public int deleteId(String removeId) {
+		int result = 0;
+
+		getConnection();
+
+		String sql = "delete from bigmember where id = ?";
+		try {
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, removeId);
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+		return result;
+
+	}
 }
