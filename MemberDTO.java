@@ -1,8 +1,8 @@
 
-public class MemberDTO {
+public class MemberDTO { 
 
-	// µ¥ÀÌÅÍº£ÀÌ½º¸¦ Ç¥ÇöÇÏ±âÀ§ÇÑ »ç¿ëÀÚ ÀÓÀÇÀÇ VO Å¬·¡½ºÀÌ´Ù
-	// VO Å¬·¡½º -> Value Object(»ç¿ëÀÚ ÀÓÀÇÀÇ Å¬·¡½º)
+	// ë°ì´í„°ë² ì´ìŠ¤ë¥¼ í‘œí˜„í•˜ê¸°ìœ„í•œ ì‚¬ìš©ì ì„ì˜ì˜ VO í´ë˜ìŠ¤ì´ë‹¤
+	// VO í´ë˜ìŠ¤ -> Value Object(ì‚¬ìš©ì ì„ì˜ì˜ í´ë˜ìŠ¤)
 	private String id;
 	private String pw;
 	private String nick;
